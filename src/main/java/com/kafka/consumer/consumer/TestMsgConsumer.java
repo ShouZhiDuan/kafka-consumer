@@ -27,7 +27,7 @@ public class TestMsgConsumer {
     /**
      * 不指定分区消费(单个串行消费)
      */
-//    @KafkaListener(topics = {TOPIC})
+//    @KafkaListener(topics = {TOPIC},groupId = "com.kafka.consumer.consumer.TestMsgConsumer-2")
 //    public void test(ConsumerRecord record){
 //        Optional<?> msg = Optional.ofNullable(record.value());
 //        if(msg.isPresent()){
@@ -92,15 +92,6 @@ public class TestMsgConsumer {
 //        //手动提交
 //        ack.acknowledge();
 //    }
-
-
-    /**
-     *
-     */
-    @KafkaListener(id = "group-DszConsumer3-2", topics = TOPIC)
-    public void ackListener(ConsumerRecord record) {
-
-    }
 
 
 }
