@@ -83,14 +83,23 @@ public class TestMsgConsumer {
     /**
      * 手动提交
      */
-    @KafkaListener(id = "group-DszConsumer3-1", topics = TOPIC, containerFactory = "ackContainerFactory")
-    public void ackListener(ConsumerRecord record, Acknowledgment ack) {
-        //手动提交
-        //ack.acknowledge();
-        String topic = record.topic();
-        long offset = record.offset();
-        int partition = record.partition();
-        log.info("当前消息topic={},offset={},partition={}",topic,offset,partition);
+//    @KafkaListener(id = "group-DszConsumer3-1", topics = TOPIC, containerFactory = "ackContainerFactory")
+//    public void ackListener(ConsumerRecord record, Acknowledgment ack) {
+//        String topic = record.topic();
+//        long offset = record.offset();
+//        int partition = record.partition();
+//        log.info("当前消息topic={},offset={},partition={}",topic,offset,partition);
+//        //手动提交
+//        ack.acknowledge();
+//    }
+
+
+    /**
+     *
+     */
+    @KafkaListener(id = "group-DszConsumer3-2", topics = TOPIC)
+    public void ackListener(ConsumerRecord record) {
+
     }
 
 
