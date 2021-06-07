@@ -27,6 +27,7 @@ public class KafkaConfig {
         ConcurrentKafkaListenerContainerFactory factory = new ConcurrentKafkaListenerContainerFactory();
         factory.getContainerProperties().setAckMode(ContainerProperties.AckMode.MANUAL_IMMEDIATE);
         factory.setConsumerFactory(consumerFactory);
+        //factory.getContainerProperties().setSyncCommits(true); //设置手动同步提交
         return factory;
     }
 

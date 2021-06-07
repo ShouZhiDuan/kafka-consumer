@@ -27,7 +27,7 @@ public class TestMsgConsumer {
     /**
      * 不指定分区消费(单个串行消费)
      */
-//    @KafkaListener(topics = {TOPIC},groupId = "TestMsgConsumer-666666-1")
+//    @KafkaListener(topics = {TOPIC},groupId = "TestMsgConsumer-666666-6")
 //    public void test(ConsumerRecord record){
 //        Optional<?> msg = Optional.ofNullable(record.value());
 //        if(msg.isPresent()){
@@ -93,7 +93,7 @@ public class TestMsgConsumer {
         int partition = record.partition();
         log.info("当前消息topic={},offset={},partition={}",topic,offset,partition);
         //手动提交
-        //ack.acknowledge();
+        ack.acknowledge();
     }
 
 
