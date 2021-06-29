@@ -12,7 +12,7 @@ import org.springframework.kafka.listener.ContainerProperties;
  * @Auther: ShouZhi@Duan
  * @Description:
  */
-@Configuration
+//@Configuration
 public class AckModeConfig {
     /**
      * MANUAL   当每一批poll()的数据被消费者监听器（ListenerConsumer）处理之后, 手动调用Acknowledgment.acknowledge()后提交

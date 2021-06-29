@@ -11,7 +11,7 @@ import org.springframework.kafka.listener.ContainerProperties;
  * @Auther: ShouZhi@Duan
  * @Description:
  */
-@Configuration
+//@Configuration
 public class KafkaConfig {
     @Bean
     public KafkaListenerContainerFactory<?> batchFactory(ConsumerFactory consumerFactory){

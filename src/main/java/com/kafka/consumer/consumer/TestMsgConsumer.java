@@ -22,18 +22,18 @@ import java.util.Optional;
 @Component
 public class TestMsgConsumer {
 
-    private final static String TOPIC = "test-topic";
+    private final static String TOPIC = "test-topic-88";
 
     /**
      * 不指定分区消费(单个串行消费)
      */
-//    @KafkaListener(topics = {TOPIC},groupId = "TestMsgConsumer-666666-6")
-//    public void test(ConsumerRecord record){
-//        Optional<?> msg = Optional.ofNullable(record.value());
-//        if(msg.isPresent()){
-//            System.err.println(msg.get());
-//        }
-//    }
+    @KafkaListener(topics = {TOPIC},groupId = "TestMsgConsumer-666666-6")
+    public void test(ConsumerRecord record){
+        Optional<?> msg = Optional.ofNullable(record.value());
+        if(msg.isPresent()){
+            System.err.println(msg.get());
+        }
+    }
 
     /**
      * 指定分区消费(单个串行消费)
@@ -86,15 +86,15 @@ public class TestMsgConsumer {
      * group-DszConsumer3-1消费组ID
      * ackContainerFactory自定消费策略
      */
-    @KafkaListener(id = "group-DszConsumer3-1", topics = TOPIC, containerFactory = "ackContainerFactory")
-    public void ackListener(ConsumerRecord record, Acknowledgment ack) {
-        String topic = record.topic();
-        long offset = record.offset();
-        int partition = record.partition();
-        log.info("当前消息topic={},offset={},partition={}",topic,offset,partition);
-        //手动提交
-        ack.acknowledge();
-    }
+//    @KafkaListener(id = "group-DszConsumer3-1", topics = TOPIC, containerFactory = "ackContainerFactory")
+//    public void ackListener(ConsumerRecord record, Acknowledgment ack) {
+//        String topic = record.topic();
+//        long offset = record.offset();
+//        int partition = record.partition();
+//        log.info("当前消息topic={},offset={},partition={}",topic,offset,partition);
+//        //手动提交
+//        ack.acknowledge();
+//    }
 
 
 }
