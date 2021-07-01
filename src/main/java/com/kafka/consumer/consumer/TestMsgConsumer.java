@@ -1,5 +1,7 @@
 package com.kafka.consumer.consumer;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
+import com.kafka.consumer.dto.DataDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -10,6 +12,7 @@ import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
 
+import java.sql.DataTruncation;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,13 +30,14 @@ public class TestMsgConsumer {
     /**
      * 不指定分区消费(单个串行消费)
      */
-    @KafkaListener(topics = {TOPIC},groupId = "TestMsgConsumer-666666-6")
-    public void test(ConsumerRecord record){
-        Optional<?> msg = Optional.ofNullable(record.value());
-        if(msg.isPresent()){
-            System.err.println(msg.get());
-        }
-    }
+//    @KafkaListener(topics = {TOPIC},groupId = "TestMsgConsumer-666666-6")
+//    public void test(ConsumerRecord record){
+//        Optional<?> msg = Optional.ofNullable(record.value());
+//        if(msg.isPresent()){
+//            System.err.println(msg.get());
+//        }
+//    }
+
 
     /**
      * 指定分区消费(单个串行消费)
