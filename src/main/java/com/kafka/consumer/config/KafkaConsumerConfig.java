@@ -11,9 +11,9 @@ import org.springframework.kafka.listener.ContainerProperties;
  * @Auther: ShouZhi@Duan
  * @Description: 批量消费模式
  */
-//@Configuration
+@Configuration
 public class KafkaConsumerConfig {
-    //@Bean
+    @Bean
     public KafkaListenerContainerFactory<?> batchFactory(ConsumerFactory consumerFactory){
         ConcurrentKafkaListenerContainerFactory<Integer,String> factory = new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(consumerFactory);
@@ -22,7 +22,7 @@ public class KafkaConsumerConfig {
         factory.getContainerProperties().setPollTimeout(1500);
         return factory;
     }
-    //@Bean("ackContainerFactory")
+    @Bean("ackContainerFactory")
     public ConcurrentKafkaListenerContainerFactory ackContainerFactory(ConsumerFactory consumerFactory) {
         ConcurrentKafkaListenerContainerFactory factory = new ConcurrentKafkaListenerContainerFactory();
         factory.getContainerProperties().setAckMode(ContainerProperties.AckMode.MANUAL_IMMEDIATE);
