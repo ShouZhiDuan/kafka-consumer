@@ -1,4 +1,4 @@
-package com.kafka.consumer;
+package com.kafka.consumer.maintest;
 
 import java.util.ArrayList;
 import java.util.List;
