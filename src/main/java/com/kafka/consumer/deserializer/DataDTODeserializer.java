@@ -1,7 +1,7 @@
 package com.kafka.consumer.deserializer;
 
 import com.alibaba.fastjson.JSON;
-import com.kafka.consumer.dto.DataDTO;
+import com.kafka.producer.DTO.DataDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.common.serialization.Deserializer;
 import java.util.Map;
