@@ -6,8 +6,6 @@ import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
-import java.util.Map;
-
 /**
  * @Auther: ShouZhi@Duan
  * @Description: 消息序列化以及消息转换器研究
@@ -30,9 +28,9 @@ public class DeserialConsumer {
      */
     @KafkaListener(topics = {TOPIC1},groupId = "_serial_consumer_1")
 //    public void test1(DataDTO producerDto, ConsumerRecord record){         //单调也能接收
-      public void test1(Map<String,DataDTO> producerDto, ConsumerRecord record){         //单调也能接收
-
-        DataDTO key = producerDto.get("key");
+      public void test1(DataDTO producerDto, ConsumerRecord record){         //单调也能接收
+       // String s = record.key().toString();
+        //DataDTO key = producerDto.get("key");
 
 //    //public void test1(List<DataDTO> data){     //多条也能也能接收
 //    //public void test1(@Payload List<String> data){
