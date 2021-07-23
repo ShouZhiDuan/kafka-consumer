@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+option java_package = "com.kafka.consumer.proto_dto";
+option java_outer_classname = "DataDTOProto";
+
+message DataDTO {
+    string name = 1;
+    int32 age = 2;
+    string addr = 3;
+}
