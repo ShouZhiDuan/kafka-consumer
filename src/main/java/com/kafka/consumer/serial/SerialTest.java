@@ -8,7 +8,7 @@ import java.io.IOException;
 
 /**
  * @Auther: ShouZhi@Duan
- * @Description:
+ * @Description: 各种序列技术性能测试
  */
 @Slf4j
 public class SerialTest {
