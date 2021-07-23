@@ -5,8 +5,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * @Auther: ShouZhi@Duan
- * @Description:
- * 更多@KafkaListener操作清参考： https://blog.csdn.net/cowbin2012/article/details/85407495
+ * @Description: 更多@KafkaListener操作清参考： https://blog.csdn.net/cowbin2012/article/details/85407495
  */
 @Slf4j
 @Component

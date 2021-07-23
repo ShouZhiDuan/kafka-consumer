@@ -74,7 +74,7 @@ public class SerialTest {
     public void jacksoSerialTest() throws IOException {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         ObjectMapper o = new ObjectMapper();
-        o.writeValue(out,dataDTO);
+        o.writeValue(out, dataDTO);
         log.info("JACKSON2序列后对象大小：" + out.toByteArray().length);
     }
 
@@ -83,7 +83,7 @@ public class SerialTest {
      * 参考：https://blog.csdn.net/u010246789/article/details/52539576/
      */
     @Test
-    public void jsonSerialTest(){
+    public void jsonSerialTest() {
         System.out.println(JSON.toJSONString(dataDTO, SerializerFeature.BeanToArray));
         byte[] bytes = JSON.toJSONBytes(dataDTO, SerializerFeature.BeanToArray);
         log.info("FASTJSON序列后对象大小：" + bytes.length);

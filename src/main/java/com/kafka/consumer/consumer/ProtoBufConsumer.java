@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 public class ProtoBufConsumer {
 
     @KafkaListener
-    public void consumerProtobuf(){
+    public void consumerProtobuf() {
 
     }
 

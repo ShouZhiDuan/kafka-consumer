@@ -14,14 +14,15 @@ import org.springframework.kafka.listener.ContainerProperties;
 @Configuration
 public class KafkaConsumerConfig {
     @Bean
-    public KafkaListenerContainerFactory<?> batchFactory(ConsumerFactory consumerFactory){
-        ConcurrentKafkaListenerContainerFactory<Integer,String> factory = new ConcurrentKafkaListenerContainerFactory<>();
+    public KafkaListenerContainerFactory<?> batchFactory(ConsumerFactory consumerFactory) {
+        ConcurrentKafkaListenerContainerFactory<Integer, String> factory = new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(consumerFactory);
         factory.setConcurrency(1);//分区数量。这里相当于2个监听器。
         factory.setBatchListener(true);//设置为批量消费，每个批次数量在Kafka配置参数中设置
         factory.getContainerProperties().setPollTimeout(1500);
         return factory;
     }
+
     @Bean("ackContainerFactory")
     public ConcurrentKafkaListenerContainerFactory ackContainerFactory(ConsumerFactory consumerFactory) {
         ConcurrentKafkaListenerContainerFactory factory = new ConcurrentKafkaListenerContainerFactory();

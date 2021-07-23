@@ -24,12 +24,11 @@ public class DeserialConsumer {
     /**
      * kafka默认消费模式
      * (串行单个拉取消费模式)
-     *
      */
-    @KafkaListener(topics = {TOPIC1},groupId = "_serial_consumer_1")
+    @KafkaListener(topics = {TOPIC1}, groupId = "_serial_consumer_1")
 //    public void test1(DataDTO producerDto, ConsumerRecord record){         //单调也能接收
-      public void test1(DataDTO producerDto, ConsumerRecord record){         //单调也能接收
-       // String s = record.key().toString();
+    public void test1(DataDTO producerDto, ConsumerRecord record) {         //单调也能接收
+        // String s = record.key().toString();
         //DataDTO key = producerDto.get("key");
 
 //    //public void test1(List<DataDTO> data){     //多条也能也能接收
@@ -62,12 +61,6 @@ public class DeserialConsumer {
 //            System.out.println("Value：" + i + "  " + data.get(i));
 //        }
 //    }
-
-
-
-
-
-
 
 
 }

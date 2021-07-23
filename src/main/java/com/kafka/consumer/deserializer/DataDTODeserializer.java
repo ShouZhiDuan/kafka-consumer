@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.kafka.producer.DTO.DataDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.common.serialization.Deserializer;
+
 import java.util.Map;
 
 /**
@@ -23,7 +24,7 @@ public class DataDTODeserializer implements Deserializer {
             encodingValue = configs.get("deserializer.encoding");
         }
         if (encodingValue instanceof String) {
-            this.encoding = (String)encodingValue;
+            this.encoding = (String) encodingValue;
         }
     }
 

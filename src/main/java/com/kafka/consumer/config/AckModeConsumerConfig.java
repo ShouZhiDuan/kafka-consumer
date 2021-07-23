@@ -16,6 +16,7 @@ import org.springframework.kafka.listener.ContainerProperties;
 public class AckModeConsumerConfig {
     /**
      * MANUAL   当每一批poll()的数据被消费者监听器（ListenerConsumer）处理之后, 手动调用Acknowledgment.acknowledge()后提交
+     *
      * @param consumerFactory
      * @return
      */
@@ -47,6 +48,7 @@ public class AckModeConsumerConfig {
 
     /**
      * RECORD   当每一条记录被消费者监听器（ListenerConsumer）处理之后提交
+     *
      * @param consumerFactory
      * @return
      */
@@ -62,6 +64,7 @@ public class AckModeConsumerConfig {
 
     /**
      * TIME     当每一批poll()的数据被消费者监听器（ListenerConsumer）处理之后，距离上次提交时间大于TIME时提交
+     *
      * @param consumerFactory
      * @return
      */

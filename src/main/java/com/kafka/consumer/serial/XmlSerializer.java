@@ -9,11 +9,11 @@ import lombok.extern.slf4j.Slf4j;
  * @Description: XML序列、反序列方式
  */
 @Slf4j
-public class XmlSerializer implements ISerializer{
+public class XmlSerializer implements ISerializer {
 
     XStream stream;
 
-    public XmlSerializer(){
+    public XmlSerializer() {
         stream = new XStream(new DomDriver());
     }
 

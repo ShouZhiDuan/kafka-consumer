@@ -32,7 +32,7 @@ public class JavaSerializer implements ISerializer {
             ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayOutputStream);
             //从文件中读取
             //ObjectInputStream objectInputStream=new ObjectInputStream(new FileInputStream(new File("E:/test/serial")));
-            return (T)objectInputStream.readObject();
+            return (T) objectInputStream.readObject();
         } catch (Exception e) {
             e.printStackTrace();
         }
