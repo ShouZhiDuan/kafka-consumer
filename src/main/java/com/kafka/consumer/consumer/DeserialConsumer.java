@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
  * @Description: 消息序列化以及消息转换器研究
  */
 @Slf4j
-@Component
+//@Component
 public class DeserialConsumer {
 
     /**
