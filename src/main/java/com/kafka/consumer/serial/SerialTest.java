@@ -2,12 +2,15 @@ package com.kafka.consumer.serial;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.protobuf.ByteString;
 import com.kafka.consumer.dto.DataDTO;
 import com.kafka.consumer.proto_dto.DataDTOProto;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 /**
@@ -65,13 +68,25 @@ public class SerialTest {
     }
 
     /**
+     * Jackson2序列测试 60个字节
+     */
+    @Test
+    public void jacksoSerialTest() throws IOException {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        ObjectMapper o = new ObjectMapper();
+        o.writeValue(out,dataDTO);
+        log.info("JACKSON2序列后对象大小：" + out.toByteArray().length);
+    }
+
+    /**
      * FastJson序列测试 40字节
      * 参考：https://blog.csdn.net/u010246789/article/details/52539576/
      */
     @Test
     public void jsonSerialTest(){
+        System.out.println(JSON.toJSONString(dataDTO, SerializerFeature.BeanToArray));
         byte[] bytes = JSON.toJSONBytes(dataDTO, SerializerFeature.BeanToArray);
-        System.out.printf(String.valueOf(bytes.length));
+        log.info("FASTJSON序列后对象大小：" + bytes.length);
     }
 
     /**
@@ -85,6 +100,5 @@ public class SerialTest {
         byte[] bytes = bs.toByteArray();
         log.info("PROTOC序列后的对象大小：" + bytes.length + "字节");
     }
-
 
 }
