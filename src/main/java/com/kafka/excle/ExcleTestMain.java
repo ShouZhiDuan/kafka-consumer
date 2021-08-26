@@ -9,6 +9,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -20,18 +21,30 @@ public class ExcleTestMain {
 
     public static void main(String[] args) {
         try {
-            showExcel();
+            //showExcel();
+            exporTest();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+    private static void  exporTest(){
+        //列头
+        String[] titles = { "t1", "t2", "t3"};
+        //导出值
+        List<List<String>> values = new ArrayList<>();
+        values.add(Arrays.asList("v1","v2","v3","v4","v5"));
+        exportExcelPaper(values,titles);
+    }
+
     public static  void showExcel() throws Exception {
         HSSFWorkbook workbook = new HSSFWorkbook(new FileInputStream(new File("E:/as/vte-real.xls")));
         HSSFSheet sheet = null;
         System.out.println("sheet页数量：" + workbook.getNumberOfSheets());
+        //列头
         List<String> titles = new ArrayList<>();
+        //导出值
         List<List<String>> values = new ArrayList<>();
-
         for (int i = 0; i < workbook.getNumberOfSheets(); i++) {
             List<String> sheetData = new ArrayList<>();
             sheet = workbook.getSheetAt(i);
